@@ -2,8 +2,8 @@ const express = require('express');
 const router = express.Router();
 const fetch = require("node-fetch");
 require('dotenv').config();
-const OWM_API_KEYS = process.env.OWM_API_KEY || 'invalid_key';
-const UNIT = process.env.UNITS || 'metric';
+const OWM_API_KEY = process.env.OWM_API_KEYS || 'invalid_key';
+const UNITS = process.env.UNIT || 'metric';
 
 /* GET home page. */
 router.get('/', function(req, res) {
@@ -33,6 +33,7 @@ router.post('/get_weather', async function (req,res) {
     console.log(err);
     res.render('index', {weather: null, error: 'Error: Unable to invoke OpenWeatherMap API'});
   }
+
 });
 
 module.exports = router;
